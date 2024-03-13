@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 15:45:39 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/03/12 14:53:05 by kilchenk         ###   ########.fr       */
+/*   Created: 2024/03/12 15:57:33 by kilchenk          #+#    #+#             */
+/*   Updated: 2024/03/13 15:53:32 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ class Zombie
 private:
     std::string _name;
 public:
-    Zombie(std::string name);
+    Zombie();
     ~Zombie();
+    void    zombieName(std::string name);
     void    out(void);
 };
 
-Zombie  *newZombie( std::string name );
-void    randomChump( std::string name );
+Zombie* zombieHorde( int N, std::string name );
 
 #endif

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 12:45:25 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/03/13 16:36:41 by kilchenk         ###   ########.fr       */
+/*   Created: 2024/03/12 16:35:22 by kilchenk          #+#    #+#             */
+/*   Updated: 2024/03/13 16:36:19 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 int main(void)
 {
-    Zombie  Yura("Yura");
-    Zombie  *Valera;
-
-    Yura.out();
-    Valera = newZombie("Valera");
-    Valera->out();
-    randomChump("Anton");
-    delete Valera;
+    Zombie  *horde;
+    
+    horde = zombieHorde(7, "Zombie");
+    delete[] horde;
+    
     return (0);
 }

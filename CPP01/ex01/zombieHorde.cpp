@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 12:45:25 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/03/13 16:36:41 by kilchenk         ###   ########.fr       */
+/*   Created: 2024/03/12 16:35:27 by kilchenk          #+#    #+#             */
+/*   Updated: 2024/03/13 16:37:30 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main(void)
+Zombie* zombieHorde( int N, std::string name )
 {
-    Zombie  Yura("Yura");
-    Zombie  *Valera;
-
-    Yura.out();
-    Valera = newZombie("Valera");
-    Valera->out();
-    randomChump("Anton");
-    delete Valera;
-    return (0);
+    Zombie  *callZombie = new Zombie[N];
+    for(int i = 0; i < N; i++)
+    {
+        callZombie[i].zombieName(name);
+        std::cout << i + 1 << ".";
+        callZombie[i].out();
+    }
+    return (callZombie);
 }
