@@ -3,7 +3,7 @@ RED		= "\033[0;31m"
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp zombieHorde.cpp Zombie.cpp
+SRC = main.cpp
 RM = rm -f
 
 

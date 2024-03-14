@@ -5,19 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 16:35:22 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/03/14 12:59:06 by kilchenk         ###   ########.fr       */
+/*   Created: 2024/03/14 14:52:04 by kilchenk          #+#    #+#             */
+/*   Updated: 2024/03/14 15:44:17 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int main(void)
+int main()
 {
-    Zombie  *horde;
+    {
+        Weapon club = Weapon("crude spiked club");
     
-    horde = zombieHorde(13, "Zombie");
-    delete[] horde;
+        HumanA bob("Bob", club);
+        bob.attack();
+        club.setType("some other type of club");
+        bob.attack();
+    }
+    {
+        Weapon club = Weapon("crude spiked club");
     
-    return (0);
+        HumanB jim("Jim");
+        jim.setWeapon(club);
+        jim.attack();
+        club.setType("some other type of club");
+        jim.attack();
+    }
+    return 0;
 }

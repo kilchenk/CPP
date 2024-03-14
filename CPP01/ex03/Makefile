@@ -2,8 +2,8 @@ RESET	= "\033[0m"
 RED		= "\033[0;31m"
 
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp zombieHorde.cpp Zombie.cpp
+FLAGS = #-Wall -Wextra -Werror -std=c++98
+SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 RM = rm -f
 
 
