@@ -6,11 +6,13 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 14:52:04 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/03/14 15:44:17 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/03/18 12:45:46 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {

@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 14:52:01 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/03/14 15:47:18 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/03/15 13:39:21 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ private:
     std::string _name;
     Weapon      *_weapon;
 public:
-    HumanB();
     HumanB(const std::string &name);
     ~HumanB();
     void    attack(void);
