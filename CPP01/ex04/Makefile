@@ -2,12 +2,13 @@ RESET	= "\033[0m"
 RED		= "\033[0;31m"
 
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+FLAGS = #-Wall -Wextra -Werror -std=c++98
+SRC = main.cpp
 RM = rm -f
+RMR = rm -f *.replace
 
 
-NAME = braiiiiiiinnnzzzz
+NAME = reaplace
 
 all:$(NAME)
 %.o: %.cpp
@@ -19,6 +20,7 @@ $(NAME): $(OBJ) $(SRC)
 
 fclean:
 	@$(RM) $(NAME)
+	@$(RMR)
 	@echo $(RED)• 👿 REMOVED 👿 •$(RESET)
 
 re: fclean all
