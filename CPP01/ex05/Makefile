@@ -3,12 +3,11 @@ RED		= "\033[0;31m"
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp
+SRC = main.cpp  Harl.cpp
 RM = rm -f
-RMR = rm -f *.replace
 
 
-NAME = replace
+NAME = harl
 
 all:$(NAME)
 %.o: %.cpp
@@ -20,7 +19,6 @@ $(NAME): $(OBJ) $(SRC)
 
 fclean:
 	@$(RM) $(NAME)
-	@$(RMR)
 	@echo $(RED)• 👿 REMOVED 👿 •$(RESET)
 
 re: fclean all
