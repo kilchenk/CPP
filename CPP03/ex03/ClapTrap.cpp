@@ -6,12 +6,11 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:29:44 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/04/04 17:35:42 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:19:16 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
 
 ClapTrap::ClapTrap()
 {
@@ -24,7 +23,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << RED << "Destructor of the - " << GREEN << _name << RED << " called" << RESET_LINE;
+    std::cout << RED << "Destructor of the - " << GREEN << "ClapTrap" << RED << " called" << RESET_LINE;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
@@ -39,6 +38,7 @@ ClapTrap    &ClapTrap::operator=(const ClapTrap &copy)
     _hitPoints = copy._hitPoints;
     _energyPoints = copy._energyPoints;
     _attackDamage = copy._attackDamage;
+    std::cout << "Operator of the - " << GREEN << _name << RESET_COLOR << " called" << RESET_LINE;
     return(*this);
 }
 
