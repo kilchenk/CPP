@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:29:38 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/04/04 18:22:34 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:24:53 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ int main()
     // a.highFivesGuys();
 
     // test 6 with diamond trap
+
 	// DiamondTrap	trap("Kyrylo");
 	// trap.attack("Boss");
 	// trap.beRepaired(3);

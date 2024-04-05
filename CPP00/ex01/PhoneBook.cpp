@@ -6,12 +6,14 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:25:42 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/03/04 17:06:57 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/04/05 16:44:11 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cstdlib>
 #include <iostream>
+#include <fstream>
 
 void	PhoneBook::out(std::string txt)
 {
@@ -103,6 +105,8 @@ void	PhoneBook::searchContakt(int indexnb)
 	outSearch("Enter The Index");
 	while (!(std::cin >> indexnb) || indexnb > 8 || indexnb < 1 || indexnb > index)
 	{
+		if (std::cin.eof())
+			exit(1);
 		std::cout << "Invalid input. Please enter an integer: ";
 		std::cin.clear();
 	}
