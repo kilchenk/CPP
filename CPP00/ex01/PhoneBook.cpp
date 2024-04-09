@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:25:42 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/04/05 16:44:11 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/04/09 17:05:52 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,12 +105,13 @@ void	PhoneBook::searchContakt(int indexnb)
 	outSearch("Enter The Index");
 	while (!(std::cin >> indexnb) || indexnb > 8 || indexnb < 1 || indexnb > index)
 	{
-		if (std::cin.eof())
-			exit(1);
 		std::cout << "Invalid input. Please enter an integer: ";
 		std::cin.clear();
+		std::cin.ignore(100, '\n');
+		if (std::cin.eof())
+			exit(1);
 	}
 	RE_TERMINAL;
 	outSearch("Phone Book");
-	_arrContact[index - 1].printConatct();
+	_arrContact[indexnb - 1].printConatct();
 }
