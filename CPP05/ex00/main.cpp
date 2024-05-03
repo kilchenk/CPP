@@ -6,33 +6,34 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 13:49:28 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/05/03 17:19:10 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:44:24 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-int main()
+int main() 
 {
-    // 	std::cout <<"Test 1" << std::endl;
+	// std::cout << GREEN "Test 1" RESET_COLOR << std::endl;
 	// try	{
-	// 	Bureaucrat c("Kostya", -1);	
-    //     std::cout << c << std::endl;
+	// 	Bureaucrat c("Kostya", 1523434)
+    //     // Bureaucrat c("Kostya", 14);		
 	// }
 	// catch (std::exception &ex) {
-	// 	std::cout << ex.what();
+	// 	std::cout << ex.what() << std::endl;
 	// }
 	// std::cout << std::endl;
 
-	// std::cout << "Test 2" << std::endl;
+	// std::cout << GREEN "Test 2" RESET_COLOR << std::endl;
 	// try	{
-	// 	Bureaucrat c("Jack", 53521);	
+	// 	Bureaucrat c("Jack", -3223);	
 	// }
 	// catch (std::exception &ex) {
-	// 	std::cout << ex.what();
-	// };
+	// 	std::cout << ex.what() << std::endl;
+	// }
+	// std::cout << std::endl;
 
-	// std::cout << "Test 3" << std::endl;
+	// std::cout << GREEN "Test 3" RESET_COLOR << std::endl;
 	// try {
 	// 	Bureaucrat a("Rostik", 140);
 	// 	for (int i = 0; i < 100; i++)
@@ -45,7 +46,7 @@ int main()
 	// }
 	// std::cout << std::endl;
 	
-	// std::cout << "Test 4" << std::endl;
+	// std::cout << GREEN "Test 4" RESET_COLOR << std::endl;
 	// try {
 	// 	Bureaucrat b("Erik", 10);
 	// 	for (int i = 0; i < 100; i++)
@@ -57,5 +58,5 @@ int main()
 	// 	std::cout << ex.what() << std::endl;
 	// }
 	
-    return 0;
+	return 0;
 }

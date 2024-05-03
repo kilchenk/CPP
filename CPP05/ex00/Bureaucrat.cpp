@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 13:49:55 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/05/03 17:18:02 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:44:08 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,21 @@
 void Bureaucrat::plusGrade()
 {
     if (_grade < 150)
-        {_grade++;
-        std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << " !" << std::endl;
-    }else
+    {
+        _grade++;
+        std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << RESET_COLOR << " !" << std::endl;
+    }
+    else
         throw GradeTooLowException();
 }
 
 void Bureaucrat::minusGrade()
 {
     if (_grade > 1)
-        {_grade--;
-            std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << " !" << std::endl;}
+    {
+        _grade--;
+        std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << RESET_COLOR << " !" << std::endl;
+    }
     else
         throw GradeTooHighException();
 }
@@ -70,7 +74,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
     else if (grade < 1)
         throw GradeTooHighException();       
     _grade = grade;
-    std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << " !" << std::endl;
+    std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << RESET_COLOR " !" << std::endl;
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
