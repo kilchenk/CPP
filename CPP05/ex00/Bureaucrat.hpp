@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 13:47:47 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/05/02 13:48:57 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:43:03 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,39 @@
 # define RESET_COLOR 	"\033[0m"
 # define RESET_LINE 	"\033[0m" << std::endl
 # define RE_TERMINAL	std::cout << "\e[1;1H\e[2J"
+# define B              "\033[1m"
+
+
+class Bureaucrat
+{
+    private:
+        const   std::string _name;
+        int         _grade;
+    public:
+        Bureaucrat();
+        Bureaucrat(const Bureaucrat &copy);
+        Bureaucrat &operator=(const Bureaucrat &copy);
+        ~Bureaucrat();
+    public:
+        Bureaucrat(const std::string &name, int grade);
+        std::string getName() const;
+        int         getGrade() const;
+        void    plusGrade();
+        void    minusGrade();
+    public: 
+    class  GradeTooHighException : public std::exception
+    {
+        const char *what() const throw();
+    };
+
+    class GradeTooLowException : public std::exception
+    {
+        const char *what() const throw();
+    };
+};
+
+
+std::ostream    &operator<<(std::ostream &stream, Bureaucrat &bureaucrat);
 
 
 #endif
