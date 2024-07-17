@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:45:39 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/03/12 14:53:05 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/04/10 13:11:16 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Zombie
 private:
     std::string _name;
 public:
+    
     Zombie(std::string name);
     ~Zombie();
     void    out(void);

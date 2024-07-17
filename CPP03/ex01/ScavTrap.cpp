@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:26:30 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/04/04 17:35:28 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:54:39 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ ScavTrap::ScavTrap(std::string const &name)
     _hitPoints = 100;
     _energyPoints = 50;
     _attackDamage = 20;
+    std::cout << "Constructors of the - " << GREEN << _name << RESET_COLOR << " called" << RESET_LINE;
 }
 
 ScavTrap    &ScavTrap::operator=(const ScavTrap &copy)

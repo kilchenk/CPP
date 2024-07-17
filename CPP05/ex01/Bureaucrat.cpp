@@ -5,86 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 13:49:55 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/05/06 15:58:14 by kilchenk         ###   ########.fr       */
+/*   Created: 2024/07/11 13:35:01 by kilchenk          #+#    #+#             */
+/*   Updated: 2024/07/15 14:53:58 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-void Bureaucrat::plusGrade()
-{
-    if (_grade < 150)
-    {
-        _grade++;
-        std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << RESET_COLOR << " !" << std::endl;
-    }
-    else
-        throw GradeTooLowException();
-}
-
-void Bureaucrat::minusGrade()
-{
-    if (_grade > 1)
-    {
-        _grade--;
-        std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << RESET_COLOR << " !" << std::endl;
-    }
-    else
-        throw GradeTooHighException();
-}
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default")
-{ 
-    _grade = 10;
-    // std::cout << "Bureaucrat constructor" << GREEN << " called" << RESET_LINE;
+{
+    // std::cout << GREEN << "Default constructor called" << RESET_LINE;
+    _grade = 150;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name)
 {
+    // std::cout << GREEN << "Copy constructor called" << RESET_LINE;
     *this = copy;
-    // std::cout << "Bureaucrat constructor" << GREEN << " called" << RESET_LINE;
 }
 
-Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &copy)
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 {
+    // std::cout << RED << "Copy assignment operator called" << RESET_LINE;
     _grade = copy._grade;
-    return(*this);
+    return *this;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-    // std::cout << "Bureaucrat destructor" << RED << " called" << RESET_LINE;
-}
-
-std::string Bureaucrat::getName() const
-{
-    return(_name);
-}
-
-int Bureaucrat::getGrade() const
-{
-    return(_grade);
+    // std::cout << RED << "Destructor called" << RESET_LINE;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
 {
+    if (grade < 1)
+        throw Bureaucrat::GradeTooHighException();
     if (grade > 150)
-        throw GradeTooLowException();
-    else if (grade < 1)
-        throw GradeTooHighException();       
+        throw Bureaucrat::GradeTooLowException();
     _grade = grade;
-    std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << RESET_COLOR " !" << std::endl;
-}
-
-const char *Bureaucrat::GradeTooLowException::what() const throw()
-{
-    return("Grade too low\n");  
-}
-
- const char *Bureaucrat::GradeTooHighException::what() const throw()
-{
-    return("Grade too high\n");
+    // std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << RESET_COLOR " !" << std::endl;
 }
 
 void Bureaucrat::signForm(Form &form)
@@ -95,15 +55,57 @@ void Bureaucrat::signForm(Form &form)
     }
     catch(const std::exception& e)
     {
-        std::cerr << getName() << " couldn’t sign " << form.getName() << " because ";
-        std::cerr << e.what() << '\n';
+        std::cerr << RED << _name << RESET_COLOR << " cannot sign '" << RED << form.getName() << RESET_COLOR << "' form because " << RED << e.what() << RESET_LINE;
+        // std::cerr << e.what() << '\n';
         return ;
     }
-    std::cout << getName() << " signed " << form.getName() << std::endl;
+    std::cout << GREEN << _name << RESET_COLOR << " signed '" << RED << form.getName() << RESET_COLOR << "' form" << RESET_LINE;
+}
+
+void Bureaucrat::plusGrade()
+{
+    if (_grade > 1)
+    {
+        _grade--;
+        //  std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << RESET_COLOR << " !" << std::endl;    
+    }
+    else
+        throw Bureaucrat::GradeTooHighException();
+}
+
+void Bureaucrat::minusGrade()
+{
+    if (_grade < 150)
+    {
+        _grade++;
+        // std::cout << "Bureaucrat " GREEN << getName() << RESET_COLOR << " is instantiated with grade - " << RED << getGrade() << RESET_COLOR << " !" << std::endl;    
+    }
+    else
+        throw Bureaucrat::GradeTooLowException();
+}
+
+std::string Bureaucrat::getName() const
+{
+    return _name;
+}
+
+int Bureaucrat::getGrade() const
+{
+    return _grade;
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return "Grade is too high\n";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return "Grade is too low\n";
 }
 
 std::ostream &operator<<(std::ostream &stream, Bureaucrat &bureaucrat)
 {
-    stream << GREEN << bureaucrat.getName() << RESET_COLOR << ", bureaucrat grade " << RED << bureaucrat.getGrade() << RESET_LINE;
+    stream << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
     return stream;
 }

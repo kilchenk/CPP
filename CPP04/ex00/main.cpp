@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:13:03 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/04/05 17:08:30 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/04/05 17:10:26 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,3 @@ int main()
     
     return 0;
 }
-
-// int main()
-// {
-// const Animal* meta = new Animal();
-// const Animal* j = new Dog();
-// const Animal* i = new Cat();
-// std::cout << j->getType() << " " << std::endl;
-// std::cout << i->getType() << " " << std::endl;
-// i->makeSound(); //will output the cat sound!
-// j->makeSound();
-// meta->makeSound();
-
-// delete(i);
-// delete(j);
-// delete(meta);
-// return 0;
-// }

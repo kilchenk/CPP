@@ -5,89 +5,91 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 13:51:17 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/05/06 15:53:15 by kilchenk         ###   ########.fr       */
+/*   Created: 2024/07/11 17:15:47 by kilchenk          #+#    #+#             */
+/*   Updated: 2024/07/12 15:53:48 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : _name("DefaultF"), _gradeToSign(150), _gradeToExecute(150)
+Form::Form() : _name("Default"), _gradeToSign(150), _gradeToExecute(150)
 {
+    // std::cout << GREEN << "Default constructor called" << RESET_LINE;
     _signed = false;
-    // std::cout << "Form constructor" << GREEN << " called" << RESET_LINE;
-}
-
-Form::~Form()
-{
-    // std::cout << "Form destructor" << RED << " called" << RESET_LINE;
 }
 
 Form::Form(const Form &copy) : _name(copy._name), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute)
 {
+    // std::cout << GREEN << "Copy constructor called" << RESET_LINE;
+    _signed = copy._signed;
     *this = copy;
-    // std::cout << "Form constructor" << GREEN << " called" << RESET_LINE;
+}
+
+Form::Form(const std::string &name, int gradeToSign, int gradeToExecute) :_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+{
+    _signed = false;
+    if (gradeToSign < 1 || gradeToExecute < 1)
+        throw Form::GradeTooHighException();
+    if (gradeToSign > 150 || gradeToExecute > 150)
+        throw Form::GradeTooLowException();
+    // std::cout << "Form " GREEN << getName() << RESET_COLOR << " is instantiated with grade to sign - " << RED << getGradeToSign() << RESET_COLOR << " and grade to execute - " << RED << getGradeToExecute() << RESET_COLOR << " !" << std::endl;
 }
 
 Form &Form::operator=(const Form &copy)
 {
+    // std::cout << RED << "Copy assignment operator called" << RESET_LINE;
     _signed = copy._signed;
-    return(*this);
+    return *this;
 }
+
+Form::~Form()
+{
+    // std::cout << RED << "Destructor called" << RESET_LINE;
+}
+
 
 std::string Form::getName() const
 {
-    return(_name);
-}
-
-int Form::getToSign() const
-{
-    return(_gradeToSign);
-}
-int Form::getToExecute() const
-{
-    return(_gradeToExecute);
+    return _name;
 }
 
 bool Form::getSigned()
 {
-    return(_signed);
+    return _signed;
 }
 
-Form::Form(const std::string &name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+int Form::getGradeToSign()
 {
-    _signed = false;
-    if (gradeToExecute < 1|| gradeToSign < 1)
-        throw GradeTooHighException();
-    else if (gradeToExecute > 150 || gradeToSign > 150)
-        throw GradeTooLowException();
+    return _gradeToSign;
+}
+
+int Form::getGradeToExecute()
+{
+    return _gradeToExecute;
 }
 
 void Form::beSigned(Bureaucrat &bureaucrat)
 {
-    if(bureaucrat.getGrade() <= _gradeToSign)
+    if (bureaucrat.getGrade() <= getGradeToSign())
         _signed = true;
     else
-        throw GradeTooLowException();
+        throw Form::GradeTooLowException();
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return "Grade is too high!";
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-    return("Grade too low\n");  
-}
-
- const char *Form::GradeTooHighException::what() const throw()
-{
-    return("Grade too high\n");
+    return "Grade is too low!";
 }
 
 std::ostream &operator<<(std::ostream &stream, Form &form)
 {
-    if (form.getSigned() == true)
-        stream << form.getName() << " form is signed " << std::endl;
-    else
-        stream << form.getName() << " form is not signed " << std::endl;
-    stream << "Grade required to sign it " << form.getToSign() << std::endl;
-    stream << "Grade required to execute it " << form.getToExecute() << std::endl;
+    stream << GREEN << form.getName() << RESET_COLOR << " form is " << RED << (form.getSigned() ? "signed" : "not signed") << RESET_LINE;
+    stream << "Grade required to sign it: " << RED << form.getGradeToSign() << RESET_LINE;
+    stream << "Grade required to execute it: " << RED << form.getGradeToExecute() << RESET_LINE;
     return stream;
 }

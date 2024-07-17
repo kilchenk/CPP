@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:29:38 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/04/04 16:48:22 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:56:17 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    // // test 1 with const and hp
+    // test 1 with const and hp
 	
     // ScavTrap constraction;
     // // ClapTrap constraction;
@@ -26,10 +26,10 @@ int main()
     // constraction.beRepaired(10);
     // constraction.attack("Boss");
 
-    // // test 2 with name and power
+    // test 2 with name and power
     
     // ClapTrap name("Kyrylo");
-    // ScavTrap name("Kyrylo");
+    // // ScavTrap name("Kyrylo");
 
     // name.attack("Boss");
     // name.beRepaired(10);
@@ -48,7 +48,7 @@ int main()
     // name.attack("Boss");
     // name.attack("Boss");
     
-    // test 3 with operator
+    // // test 3 with operator
 
     // ClapTrap catto("Catto");
     // ClapTrap doggo("Doggo");
@@ -73,7 +73,7 @@ int main()
     // doggo.beRepaired(2);
     // ddoggo.beRepaired(2);
 
-    // test 4 with Guard
+    // // test 4 with Guard
 
     // ScavTrap    h("Kyrylo");
     // ScavTrap    a;

@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:29:38 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/04/04 18:24:53 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/04/12 15:05:01 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,12 +117,12 @@ int main()
 
     // test 5 with high five
 
-    // FragTrap    h("Kyrylo");
-    // FragTrap    a;
-    // h.attack("Boss");
-    // a.attack("Boss");
-    // h.highFivesGuys();
-    // a.highFivesGuys();
+    FragTrap    h("Kyrylo");
+    FragTrap    a;
+    h.attack("Boss");
+    a.attack("Boss");
+    h.highFivesGuys();
+    a.highFivesGuys();
 
     // test 6 with diamond trap
 

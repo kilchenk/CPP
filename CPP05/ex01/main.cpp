@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 13:49:28 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/05/06 15:42:03 by kilchenk         ###   ########.fr       */
+/*   Created: 2024/07/11 17:15:51 by kilchenk          #+#    #+#             */
+/*   Updated: 2024/07/12 15:33:05 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {

@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 14:41:45 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/03/27 15:37:05 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/04/11 15:53:15 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main( void )
     Fixed c;
 
     c = b;
-
+    a.setRawBits(22);
     std::cout << a.getRawBits() << std::endl;
     std::cout << b.getRawBits() << std::endl;
     std::cout << c.getRawBits() << std::endl;

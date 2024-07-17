@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 16:32:26 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/03/21 13:15:30 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:21:48 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int main(int argc, char **argv)
 
     newFile.open((std::string(argv[1]) + ".replace").c_str());
     while (getline(file, tmp))
-        fileConect.append(tmp + "\n");
+        fileConect.append(tmp + "\n"); //add
     if(!fileConect.empty())
-        fileConect.erase(fileConect.end() - 1);
+        fileConect.erase(fileConect.end() - 1); //remove
     while (fileConect.find(argv[2]) != std::string::npos)
     {
         index = fileConect.find(argv[2]);
