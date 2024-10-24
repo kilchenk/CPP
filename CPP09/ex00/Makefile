@@ -3,11 +3,11 @@ RED		= "\033[0;31m"
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Base.cpp
+SRC = main.cpp BitcoinExchange.cpp
 RM = rm -f
 
 
-NAME = base
+NAME = btc
 
 all:$(NAME)
 %.o: %.cpp
