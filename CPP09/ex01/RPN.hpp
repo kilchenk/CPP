@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 16:33:23 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/10/28 14:01:48 by kilchenk         ###   ########.fr       */
+/*   Created: 2024/10/25 13:44:38 by kilchenk          #+#    #+#             */
+/*   Updated: 2024/10/28 16:58:25 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef BITCOIN_EXCHANGE_HPP
-#   define BITCOIN_EXCHANGE_HPP
+# ifndef RPN_HPP
+#   define RPN_HPP
 
 #include <iostream>
 #include <cmath>
+#include <stack>
 #include <climits>
 #include <cstdlib>
 #include <vector>
@@ -34,27 +35,13 @@
 # define RE_TERMINAL	std::cout << "\e[1;1H\e[2J"
 
 
-class BitcoinExchange
-{
-    private:
-        std::map<std::string, double> _data;
-    public:
-        BitcoinExchange();
-        BitcoinExchange(const BitcoinExchange &copy);
-        BitcoinExchange &operator=(const BitcoinExchange &copy);
-        ~BitcoinExchange();
-    public:
-        void                          initData();
-        std::map<std::string, double>::iterator findData(std::string dat);
-    class checkDB : public std::exception
+        bool    inputValidation(std::string str);
+        bool    isToken(char token);
+        bool    reversePolishNotation(std::string str);
+        
+    class checkInput : public std::exception
     {
         const char* what() const throw();
-    };
-    class checkIF : public std::exception
-    {
-        const char* what() const throw();
-    };
-};
-
+    }; 
 
 #endif
