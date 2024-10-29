@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:30:20 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/10/28 17:06:57 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/10/29 11:17:39 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ bool    inputValidation(std::string str)
     for (std::string::iterator it = str.begin(); it != str.end(); it++)
     {
         if (isdigit(*it) && *(it + 1) && isdigit(*(it + 1)))
-            return true;
-        if (isdigit(*it) && *(it + 1) && isToken(*(it + 2)))
             return true;
         if (!isdigit(*it) && !isToken(*it) && !(*it == ' '))
             return true;
@@ -62,6 +60,8 @@ bool    reversePolishNotation(std::string str)
     {
         if (token == "+" || token == "-" || token == "*" || token == "/") 
         {
+            if (stack.size() < 2)
+                return false;
             int b = stack.top();
             stack.pop();
             int a = stack.top();
