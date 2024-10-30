@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:37:38 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/10/29 16:49:45 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:11:00 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define RED			"\033[0;31m"
 # define GREEN			"\033[1m\033[32m"
 # define BLUE           "\033[1m\033[36m"
-# define PURPLE         "\033[35m"
+# define PURPLE         "\033[1m\033[35m"
 # define RESET_COLOR 	"\033[0m"
 #define  BOLDRED        "\033[1m\033[31m"
 # define RESET_LINE 	"\033[0m" << std::endl
@@ -40,7 +40,7 @@ class PmergeMe
         typedef std::pair<int, int> _typePair;
         Container                   _data;
         double                      _time;
-        int                         _end;
+        int                         _last;
     public:
         PmergeMe();
         PmergeMe(const PmergeMe &copy);
@@ -48,7 +48,12 @@ class PmergeMe
         ~PmergeMe();
     public:
         PmergeMe(char **argv);
-        void    printRes();        
+        std::vector<_typePair>  presort_pairs();
+        std::vector<int>        jacobsenChain(size_t size);
+        void                    insertsort(std::vector<_typePair> &pair_array);
+        void    printRes();
+        void    sort();
+        int		binarySearch(int target);
 };
 
 
