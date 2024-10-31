@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:01:44 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/10/30 17:22:04 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/10/31 14:56:59 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ int main(int argc, char **argv)
         deque.sort();//sort deque
         std::cout << BLUE << "After: ";
         vector.printRes();// print num
-        //vec time
-        //dec time
+        vector.getTime();//vec time
+        deque.getTime();//dec time
         return (0);
     }
     std::cerr << BOLDRED << "Error: " << BLUE << "insufficient arguments." << RESET_LINE;

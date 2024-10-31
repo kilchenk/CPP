@@ -6,11 +6,33 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:10:32 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/10/30 17:18:30 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/10/31 14:56:23 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+template <typename Container>
+std::string getContainer();
+
+template <>
+std::string getContainer<std::vector<int> >()
+{
+    return "vector<int>";
+}
+
+template <>
+std::string getContainer<std::deque<int> >()
+{
+    return "deque<int>";
+}
+
+template <typename Container>
+void    PmergeMe<Container>::getTime()
+{
+    std::cout << BLUE << "Time to process a range of " << PURPLE << _data.size() << BLUE << " elements with " << PURPLE << "std::" 
+    << getContainer<Container>() << BLUE << " : " << GREEN << std::fixed << std::setprecision(6) << _time << BLUE << " us" << RESET_LINE;  
+}
 
 template <typename Container>
 PmergeMe<Container>::PmergeMe()
@@ -87,7 +109,7 @@ void PmergeMe<Container>::sort()
         index = binarySearch(_last);
         _data.insert(_data.begin() + index, _last);
     }
-    
+    _time = static_cast<double>(std::clock() - start) / static_cast<double>(CLOCKS_PER_SEC);
 }
 
 template<class Container>

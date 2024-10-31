@@ -6,7 +6,7 @@
 /*   By: kilchenk <kilchenk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:37:38 by kilchenk          #+#    #+#             */
-/*   Updated: 2024/10/30 17:11:00 by kilchenk         ###   ########.fr       */
+/*   Updated: 2024/10/31 14:48:59 by kilchenk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ class PmergeMe
         void    printRes();
         void    sort();
         int		binarySearch(int target);
+        void    getTime();
 };
 
 
